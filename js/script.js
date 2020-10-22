@@ -23,7 +23,6 @@ function inversioneParola(parolaUtente) {
     // La variabile i parte dalla fine della parolaUtente (il -1 serve perchè ricordiamo che il conteggio parte da 0 e non da 1) e continua il loop fino a quando non arriva al carattere 0 (il primo della parola inserita dall'utente) grazie al contatore i--
     for ( var i = parolaUtente.length - 1; i >= 0; i-- ) {
        parolaInvertita += parolaUtente[i];
-      
     }
     // Indispensabile per portare il valore ottenuto fuori dalla funzione
     return parolaInvertita;
@@ -41,23 +40,24 @@ function inversioneParola(parolaUtente) {
 var parDis = prompt('Scegliere tra pari e dispari').toLocaleLowerCase();
 console.log('Utente sceglie: ' + parDis);
 // Aggiunta di una piccola validazione
-if (parDis != 'pari' && parDis != 'dispari') {
-    console.log('Il valore inserito non è valido, riprovare');
+while (parDis != 'pari' && parDis != 'dispari') {
+    var parDis = prompt('Il valore inserito non è valido, riprovare').toLocaleLowerCase();
 }
 // Numero utente
 var numeroUtente = parseInt( prompt('Scegliere un numero compreso tra 1 e 5') );
 console.log('Numero utente: ' + numeroUtente);
 // Aggiunta di una piccola validazione
-if(numeroUtente < 1 || numeroUtente > 5) {
-    console.log('Il numero selezionato non è valido, riprovare');
+while (numeroUtente < 1 || numeroUtente > 5) {
+    var numeroUtente = parseInt( prompt('Il valore inserito non è valido, riprovare') );
 }
+
 // Numero computer (ho usato una funzione per ottenerlo)
 var numeroComputer = numeroRandom(1, 5);
 console.log('Numero computer: ' + numeroComputer);
 
-// Sommo i due valori (utente e computer)
+// Sommo i due valori utente + computer (anche in questo caso con l'utilizzo di una funzione)
 var sommaUtComp = somma(numeroUtente, numeroComputer);
-console.log('La somma tra il numero utente e computer è: ' + sommaUtComp);
+console.log('La somma tra il numero utente e quello del computer è: ' + sommaUtComp);
 
 // Risultato pari o dispari
 if (parDis === 'pari' && sommaUtComp % 2 === 0) {
