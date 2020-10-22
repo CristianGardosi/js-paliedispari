@@ -1,33 +1,33 @@
-// // // PAROLA PALINDROMA
+// // PAROLA PALINDROMA
 
-// // Chiedere all'utente di inserire una parola
-// // Creare una funzione per invertire i caratteri di una stringa.
-// // Capire se la parola inserita è palindroma
-// var parola = prompt('Inserire una parola');
-// console.log('Parola inserita: ' + parola);
+// Chiedere all'utente di inserire una parola
+// Creare una funzione per invertire i caratteri di una stringa.
+// Capire se la parola inserita è palindroma
+var parola = prompt('Inserire una parola');
+console.log('Parola inserita: ' + parola);
 
-// // Invoco la funzione per eseguire la mia inversione
-// var invocazioneParolaInvertita = inversioneParola(parola);
-// console.log('Parola invertita: ' + invocazioneParolaInvertita);
+// Invoco la funzione per eseguire la mia inversione
+var invocazioneParolaInvertita = inversioneParola(parola);
+console.log('Parola invertita: ' + invocazioneParolaInvertita);
 
-// // Controllo se la parola inserita è palindroma
-// if (parola === invocazioneParolaInvertita){
-//     console.log('La parola inserita risulta essere PALINDROMA')
-// } else {
-//     console.log('La parola inserita non è PALINDROMA')
-// }
+// Controllo se la parola inserita è palindroma
+if (parola === invocazioneParolaInvertita){
+    console.log('La parola inserita risulta essere PALINDROMA')
+} else {
+    console.log('La parola inserita non è PALINDROMA')
+}
 
-// // Definisco la funzione (N.B. SEMPRE INFONDO AL MIO CODICE)
-// function inversioneParola(parolaUtente) {
-//     var parolaInvertita = '';
-//     // La variabile i parte dalla fine della parolaUtente (il -1 serve perchè ricordiamo che il conteggio parte da 0 e non da 1) e continua il loop fino a quando non arriva al carattere 0 (il primo della parola inserita dall'utente) grazie al contatore i--
-//     for ( var i = parolaUtente.length - 1; i >= 0; i-- ) {
-//        parolaInvertita += parolaUtente[i];
+// Definisco la funzione (N.B. SEMPRE INFONDO AL MIO CODICE)
+function inversioneParola(parolaUtente) {
+    var parolaInvertita = '';
+    // La variabile i parte dalla fine della parolaUtente (il -1 serve perchè ricordiamo che il conteggio parte da 0 e non da 1) e continua il loop fino a quando non arriva al carattere 0 (il primo della parola inserita dall'utente) grazie al contatore i--
+    for ( var i = parolaUtente.length - 1; i >= 0; i-- ) {
+       parolaInvertita += parolaUtente[i];
       
-//     }
-//     // Indispensabile per portare il valore ottenuto fuori dalla funzione
-//     return parolaInvertita;
-// }
+    }
+    // Indispensabile per portare il valore ottenuto fuori dalla funzione
+    return parolaInvertita;
+}
 
 
 // // PARI O DISPARI
@@ -56,14 +56,14 @@ var numeroComputer = numeroRandom(1, 5);
 console.log('Numero computer: ' + numeroComputer);
 
 // Sommo i due valori (utente e computer)
-var somma = numeroUtente +  numeroComputer;
-console.log('La somma tra il numero utente e computer è: ' + somma);
+var sommaUtComp = somma(numeroUtente, numeroComputer);
+console.log('La somma tra il numero utente e computer è: ' + sommaUtComp);
 
 // Risultato pari o dispari
-if (parDis === 'pari' && somma % 2 === 0) {
+if (parDis === 'pari' && sommaUtComp % 2 === 0) {
     console.log('HAI VINTO!!!');
 } 
-else if (parDis === 'dispari' && somma % 2 !== 0) {
+else if (parDis === 'dispari' && sommaUtComp % 2 !== 0) {
     console.log('HAI VINTO!!!');
 }
 else {
@@ -71,9 +71,14 @@ else {
 }
 
 
-
+// Funzioni richieste
 function numeroRandom(min, max) {
     var random = Math.floor( Math.random() * (max - min + 1) ) + min;
 
     return random;
+}
+
+function somma (num1, num2) {
+    var sommaValori = num1 + num2;
+    return sommaValori;
 }
