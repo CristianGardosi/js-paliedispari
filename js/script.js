@@ -20,12 +20,12 @@ if (parola === invocazioneParolaInvertita){
 // Definisco la funzione (N.B. SEMPRE INFONDO AL MIO CODICE)
 function inversioneParola(parolaUtente) {
     var parolaInvertita = '';
-    // La variabile i parte dalla fine della parolaUtente (il -1 serve perchè ricordiamo che il conteggio parte da 0 e non da 1) e continua il loop fino a quando non arriva al carattere 0 (il primo della parola inserita dall'utente) grazie al contatore 1--
+    // La variabile i parte dalla fine della parolaUtente (il -1 serve perchè ricordiamo che il conteggio parte da 0 e non da 1) e continua il loop fino a quando non arriva al carattere 0 (il primo della parola inserita dall'utente) grazie al contatore i--
     for ( var i = parolaUtente.length - 1; i >= 0; i-- ) {
-       parolaInvertita = parolaInvertita + parolaUtente[i];
+       parolaInvertita += parolaUtente[i];
       
     }
-
+    // Indispensabile per portare il valore ottenuto fuori dalla funzione
     return parolaInvertita;
 }
 
@@ -37,3 +37,27 @@ function inversioneParola(parolaUtente) {
 // Sommiamo i due numeri
 // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 // Dichiariamo chi ha vinto in base alla scelta pario o dispari fatta all'inizio dall'utente.
+
+var parDis = prompt('Scegliere tra pari e dispari')
+console.log(parDis);
+// Aggiunta di una piccola validazione
+if (parDis != 'pari' && parDis != 'dispari') {
+    console.log('Il valore inserito non è valido, riprovare');
+}
+// Numero utente
+var numeroUtente = parseInt( prompt('Scegliere un numero compreso tra 1 e 5') )
+console.log(numeroUtente);
+// Aggiunta di una piccola validazione
+if(numeroUtente < 1 || numeroUtente > 5) {
+    console.log('Il numero selezionato non è valido, riprovare');
+}
+// Numero computer (ho usato una funzione per ottenerlo)
+var numeroComputer = numeroRandom(1, 5);
+console.log(numeroComputer)
+
+
+function numeroRandom(min, max) {
+    var random = Math.floor( Math.random() * (max - min + 1) ) + min;
+
+    return random;
+}
